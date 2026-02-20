@@ -4,17 +4,18 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                sh 'pip install -r requirements.txt'
+                sh 'pip3 install -r requirements.txt'
             }
         }
         stage('Run Tests') {
             steps {
-                sh 'pytest test_app.py -v'
+                sh 'pip3 show pytest || pip3 install pytest'
+                sh 'python3 -m pytest test_app.py -v'
             }
         }
         stage('Deploy') {
             steps {
-                sh 'python app.py &'
+                sh 'python3 app.py &'
             }
         }
     }
