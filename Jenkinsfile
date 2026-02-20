@@ -4,17 +4,17 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                bat 'pip install -r requirements.txt'
+                sh 'pip install -r requirements.txt'
             }
         }
         stage('Run Tests') {
             steps {
-                bat 'pytest test_app.py -v'
+                sh 'pytest test_app.py -v'
             }
         }
         stage('Deploy') {
             steps {
-                bat 'python app.py'
+                sh 'python app.py &'
             }
         }
     }
