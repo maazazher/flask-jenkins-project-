@@ -1,4 +1,4 @@
-﻿pipeline {
+pipeline {
     agent any
 
     stages {
@@ -21,7 +21,7 @@
 
     post {
         success {
-            echo 'Pipeline succeeded! App is running!'
+            echo 'Pipeline succeeded!'
         }
         failure {
             echo 'Pipeline failed! Check the logs!'
